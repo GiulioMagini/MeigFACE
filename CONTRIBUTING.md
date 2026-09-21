@@ -1,0 +1,3 @@
+# Contributing
+
+This is a personal project and I'm not currently accepting pull requests or external contributions for modifying program functionalities. However, since i cannot test directly the project into a MAC computer (i don't have one) if you want to try it and compile it for MAC, and you find a way to make it work, i will put this modifications into the project (after review). For other usages you can fork it for your personal usage.

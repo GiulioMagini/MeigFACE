@@ -1,0 +1,284 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MeigFACE avatar</title>
+<style>
+  html,body{margin:0;height:100%;background:transparent}
+  svg{display:block;width:100%;height:100%}
+</style>
+<svg viewBox="0 0 360 378" xmlns="http://www.w3.org/2000/svg" aria-label="Avatar 2D di una donna adulta con capelli lunghi castani e vestito rosso">
+    <defs>
+      <radialGradient id="skin" cx="48%" cy="40%" r="62%">
+        <stop offset="0%" stop-color="#f0c4a3"/>
+        <stop offset="70%" stop-color="#e3ad88"/>
+        <stop offset="100%" stop-color="#cf9067"/>
+      </radialGradient>
+      <linearGradient id="jacket" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#363f50"/>
+        <stop offset="100%" stop-color="#262d3a"/>
+      </linearGradient>
+      <linearGradient id="hairg" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#3a322a"/>
+        <stop offset="55%" stop-color="#241e18"/>
+        <stop offset="100%" stop-color="#191410"/>
+      </linearGradient>
+      <linearGradient id="hairBrown" x1="0" y1="0" x2="0.25" y2="1">
+        <stop offset="0%" stop-color="#7a5436"/>
+        <stop offset="55%" stop-color="#5b3d26"/>
+        <stop offset="100%" stop-color="#43301f"/>
+      </linearGradient>
+      <linearGradient id="dressRed" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#d23b30"/>
+        <stop offset="100%" stop-color="#a92820"/>
+      </linearGradient>
+      <linearGradient id="neckg" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#dba67f"/>
+        <stop offset="55%" stop-color="#cf9067"/>
+        <stop offset="100%" stop-color="#bc7f58"/>
+      </linearGradient>
+      <filter id="soft" x="-60%" y="-60%" width="220%" height="220%">
+        <feGaussianBlur stdDeviation="3.2"/>
+      </filter>
+      <clipPath id="clipEyeL"><ellipse cx="143" cy="176" rx="20" ry="13"/></clipPath>
+      <clipPath id="clipEyeR"><ellipse cx="217" cy="176" rx="20" ry="13"/></clipPath>
+    </defs>
+
+    <!-- LONG HAIR (back layer): solid flowing mass, no gaps behind neck/shoulders -->
+    <path d="M88 150
+             Q66 54 180 42
+             Q294 54 272 150
+             Q304 210 298 288
+             Q308 342 282 382
+             L78 382
+             Q52 342 62 288
+             Q56 210 88 150 Z" fill="url(#hairBrown)"/>
+    <!-- soft wavy strand lines for texture -->
+    <path d="M84 190 Q72 250 82 310 Q86 350 96 378" fill="none" stroke="#43301f" stroke-width="2" opacity=".4"/>
+    <path d="M104 180 Q96 250 100 320 Q102 354 112 380" fill="none" stroke="#43301f" stroke-width="1.6" opacity=".3"/>
+    <path d="M276 190 Q288 250 278 310 Q274 350 264 378" fill="none" stroke="#43301f" stroke-width="2" opacity=".4"/>
+    <path d="M256 180 Q264 250 260 320 Q258 354 248 380" fill="none" stroke="#43301f" stroke-width="1.6" opacity=".3"/>
+
+    <!-- BODY: red dress + neck. Gets subtle breathing motion. -->
+    <g id="bodyGroup">
+      <!-- neck: top tucks behind the chin, bottom extends straight under the clothes -->
+      <path d="M146 272 q34 18 68 0 L224 336 L136 336 Z" fill="url(#neckg)"/>
+      <!-- white blouse between the neck and the red dress (covers the neck base) -->
+      <path d="M118 312 Q180 326 242 312 L248 382 L112 382 Z" fill="#f4f1ea"/>
+      <!-- red dress: shoulders with a soft scoop neckline -->
+      <path d="M70 382 Q72 338 130 322 Q156 333 180 335 Q204 333 230 322 Q288 338 290 382 Z" fill="url(#dressRed)"/>
+      <!-- soft neckline shading -->
+      <path d="M134 326 Q180 344 226 326 Q180 354 134 326 Z" fill="#9c2820" opacity=".4"/>
+    </g>
+
+    <!-- HEAD: face, hair, features. Gets micro head-sway + rotation. -->
+    <g id="headGroup">
+      <!-- ears with inner ear -->
+      <ellipse cx="92" cy="182" rx="13" ry="20" fill="#dca079"/>
+      <ellipse cx="268" cy="182" rx="13" ry="20" fill="#dca079"/>
+      <ellipse cx="94" cy="184" rx="6" ry="11" fill="#c2855d"/>
+      <ellipse cx="266" cy="184" rx="6" ry="11" fill="#c2855d"/>
+      <path d="M96 175 q-6 9 -1 19" fill="none" stroke="#a96e47" stroke-width="1.4" opacity=".6"/>
+      <path d="M264 175 q6 9 1 19" fill="none" stroke="#a96e47" stroke-width="1.4" opacity=".6"/>
+      <!-- face base -->
+      <path d="M180 70
+               q70 0 78 86
+               q5 64 -28 102
+               q-22 26 -50 26
+               q-28 0 -50 -26
+               q-33 -38 -28 -102
+               q8 -86 78 -86 Z" fill="url(#skin)"/>
+      <!-- soft blurred feather over the chin-to-neck contour -->
+      <path d="M144 286 Q180 316 216 286 Q180 300 144 286 Z" fill="#d6a079" opacity=".7" filter="url(#soft)"/>
+      <!-- jaw/chin soft shading (small, just for definition) -->
+      <path d="M154 256 q12 24 26 28 q14 -4 26 -28 q-12 16 -26 18 q-14 -2 -26 -18 Z" fill="#c5875f" opacity=".22"/>
+      <!-- front hair: side-swept fringe with diagonal tapered locks (staggered tips) -->
+      <path d="M101 152
+               Q96 66 168 58
+               Q214 54 250 86
+               Q260 110 257 152
+               C253 122 247 110 236 104
+               Q230 122 220 136
+               Q220 116 208 106
+               Q200 122 192 132
+               Q190 112 178 105
+               Q168 118 160 124
+               Q154 108 144 106
+               Q130 110 122 126
+               Q112 136 101 152 Z" fill="url(#hairBrown)"/>
+      <!-- thin strand lines inside the fringe -->
+      <path d="M232 106 Q226 120 221 131" fill="none" stroke="#43301f" stroke-width="1.3" opacity=".45"/>
+      <path d="M204 108 Q198 119 193 128" fill="none" stroke="#43301f" stroke-width="1.2" opacity=".4"/>
+      <path d="M172 107 Q166 116 161 122" fill="none" stroke="#43301f" stroke-width="1.1" opacity=".35"/>
+      <!-- side hair panels covering the ears (solid tone blending with the long hair) -->
+      <path d="M84 130 Q72 175 78 215 Q82 244 96 264 Q108 250 110 215 Q112 170 104 134 Q93 124 84 130 Z" fill="#5b3d26"/>
+      <path d="M276 130 Q288 175 282 215 Q278 244 264 264 Q252 250 250 215 Q248 170 256 134 Q267 124 276 130 Z" fill="#5b3d26"/>
+      <!-- face-framing temple locks (move with the head) -->
+      <path d="M104 138 Q95 182 103 226 Q107 246 117 258 Q107 220 111 184 Q113 156 104 138 Z" fill="url(#hairBrown)"/>
+      <path d="M256 138 Q265 182 257 226 Q253 246 243 258 Q253 220 249 184 Q247 156 256 138 Z" fill="url(#hairBrown)"/>
+      <!-- eyebrows -->
+      <path id="browL" d="M126 151 q17 -8 34 -3 q-17 -1 -34 5 Z" fill="#6a4a35"/>
+      <path id="browR" d="M234 151 q-17 -8 -34 -3 q17 -1 34 5 Z" fill="#6a4a35"/>
+
+      <!-- EYES. Each #eye* group is scaled vertically by JS for blinking. -->
+      <g clip-path="url(#clipEyeL)">
+        <rect x="120" y="160" width="46" height="34" fill="#e9c6a6"/>
+        <g id="eyeL">
+          <ellipse cx="143" cy="176" rx="19" ry="12" fill="#f7f4ee"/>
+          <circle cx="143" cy="176" r="8.5" fill="#4a86c5"/>
+          <circle cx="143" cy="176" r="4" fill="#1a130c"/>
+          <circle cx="146" cy="173" r="2" fill="#fff" opacity=".85"/>
+        </g>
+      </g>
+      <g clip-path="url(#clipEyeR)">
+        <rect x="194" y="160" width="46" height="34" fill="#e9c6a6"/>
+        <g id="eyeR">
+          <ellipse cx="217" cy="176" rx="19" ry="12" fill="#f7f4ee"/>
+          <circle cx="217" cy="176" r="8.5" fill="#4a86c5"/>
+          <circle cx="217" cy="176" r="4" fill="#1a130c"/>
+          <circle cx="220" cy="173" r="2" fill="#fff" opacity=".85"/>
+        </g>
+      </g>
+
+      <!-- nose -->
+      <path d="M180 202 l-4 19 q7 9 16 1" fill="none" stroke="#c5875f" stroke-width="2.4" stroke-linecap="round" opacity=".7"/>
+      <ellipse cx="174" cy="224" rx="3" ry="2" fill="#b87c52" opacity=".6"/>
+
+      <!-- MOUTH. All paths are recomputed each frame by applyMouth(open). -->
+      <g id="mouth">
+        <path id="mouthInner" d="" fill="#4a2020"/>
+        <path id="teeth" d="" fill="#f3eee4" opacity="0"/>
+        <path id="upperLip" d="" fill="#cb4a48"/>
+        <path id="lowerLip" d="" fill="#de6a64"/>
+      </g>
+    </g>
+  </svg>
+<script>
+"use strict";
+// Embeddable MeigFACE puppet. It only renders the avatar with procedural blink
+// and head-sway; the host page drives mouth openness and head-movement amount
+// through postMessage. There are no on-screen controls and no audio here.
+
+const eyeL = document.getElementById("eyeL");
+const eyeR = document.getElementById("eyeR");
+const headGroup = document.getElementById("headGroup");
+const bodyGroup = document.getElementById("bodyGroup");
+const mouthInner = document.getElementById("mouthInner");
+const upperLip = document.getElementById("upperLip");
+const lowerLip = document.getElementById("lowerLip");
+const teeth = document.getElementById("teeth");
+
+let mouthOpen = 0;      // smoothed mouth openness [0..1]
+let mouthTarget = 0;    // latest target openness from the host
+let headMovement = 1;   // head-sway amplitude [0..2], set by the host
+let eyeOpenL = 1, eyeOpenR = 1;
+let blinkPhase = "open";
+let blinkT = 0;
+let nextBlinkIn = randRange(2.2, 5.5);
+const EYE_CX = { L: 143, R: 217 }, EYE_CY = 176;
+const SWAY = {
+  a: [Math.random()*6, Math.random()*6, Math.random()*6],
+  x: [Math.random()*6, Math.random()*6, Math.random()*6],
+  y: [Math.random()*6, Math.random()*6, Math.random()*6],
+};
+
+function randRange(a, b){ return a + Math.random() * (b - a); }
+function clamp(v, lo, hi){ return v < lo ? lo : v > hi ? hi : v; }
+function noise1(t, s){
+  return (Math.sin(t*0.37 + s[0]) + Math.sin(t*0.21 + s[1])*0.7 + Math.sin(t*0.097 + s[2])*0.5) / 2.2;
+}
+
+// Host -> avatar messages:
+//   { type:"mouth", value:0..1 }        set the current mouth openness
+//   { type:"headMovement", value:0..2 } set the head-sway amplitude
+window.addEventListener("message", (e) => {
+  const m = e.data;
+  if (!m || typeof m !== "object") return;
+  if (m.type === "mouth" && typeof m.value === "number") mouthTarget = clamp(m.value, 0, 1);
+  else if (m.type === "headMovement" && typeof m.value === "number") headMovement = clamp(m.value, 0, 2);
+});
+
+let lastT = performance.now();
+function frame(now){
+  const dt = Math.min(0.05, (now - lastT) / 1000);
+  lastT = now;
+  const t = now / 1000;
+
+  // Mouth: fast attack, slower release toward the host-provided target.
+  const k = mouthTarget > mouthOpen ? 0.55 : 0.28;
+  mouthOpen += (mouthTarget - mouthOpen) * k;
+  applyMouth(mouthOpen);
+
+  // Blink (always active).
+  updateBlink(dt);
+  applyEye(eyeL, EYE_CX.L, eyeOpenL);
+  applyEye(eyeR, EYE_CX.R, eyeOpenR);
+
+  // Head-sway + breathing (always active); amplitude comes from the host.
+  const s = headMovement;
+  const ang = noise1(t, SWAY.a) * (0.9 + s * 0.9);
+  const tx  = noise1(t, SWAY.x) * (1.4 + s * 1.0);
+  const ty  = noise1(t * 0.9, SWAY.y) * (1.0 + s * 0.6);
+  headGroup.setAttribute("transform",
+    `rotate(${ang.toFixed(3)} 180 312) translate(${tx.toFixed(2)} ${ty.toFixed(2)})`);
+  bodyGroup.setAttribute("transform", `translate(0 ${(Math.sin(t*0.65)*0.8).toFixed(2)})`);
+
+  requestAnimationFrame(frame);
+}
+
+// Corner lift that turns the flat mouth line into a gentle smile. The lift is
+// eased off as the mouth opens: at full openness a strongly raised corner
+// reads as a grimace rather than a smile.
+const SMILE_LIFT = 3;      // corner rise in SVG units at rest
+const SMILE_FALLOFF = 0.3; // fraction of the lift given up at full openness
+
+// Recompute the lip/interior paths from openness [0..1]. Both mouth corners
+// sit SMILE_LIFT above the mouth center line, so every path derived from them
+// curves together and the smile holds at any openness. The center control
+// points are left untouched, which keeps the vertical opening identical to the
+// previous flat-mouth version.
+function applyMouth(open){
+  const cx = 180, cy = 252, w = 22;
+  const upY = cy - open * 9;
+  const loY = cy + 2 + open * 16;
+  // Corner y shared by every full-width path, so they meet exactly at the
+  // raised corners and leave no gap.
+  const lift = SMILE_LIFT * (1 - SMILE_FALLOFF * open);
+  const coY = cy - lift;
+  mouthInner.setAttribute("d", `M${cx-w} ${coY} Q${cx} ${upY} ${cx+w} ${coY} Q${cx} ${loY} ${cx-w} ${coY} Z`);
+  const tw = w - 5;
+  // The teeth path is inset horizontally, and the mouth outline is a quadratic,
+  // so its corners sit lower on the same curve than the full-width ones. Scaling
+  // the lift by tw/w tracks that curve closely enough to keep the teeth inside
+  // the lips near the corners.
+  const tcY = cy - 1 - lift * tw / w;
+  teeth.setAttribute("d", `M${cx-tw} ${tcY} Q${cx} ${upY+3} ${cx+tw} ${tcY} Q${cx} ${cy+3} ${cx-tw} ${tcY} Z`);
+  teeth.setAttribute("opacity", clamp((open-0.16)*1.5, 0, 0.92).toFixed(2));
+  upperLip.setAttribute("d", `M${cx-w} ${coY} Q${cx} ${cy-11} ${cx+w} ${coY} Q${cx} ${upY-1} ${cx-w} ${coY} Z`);
+  lowerLip.setAttribute("d", `M${cx-w} ${coY} Q${cx} ${loY+9} ${cx+w} ${coY} Q${cx} ${loY-1} ${cx-w} ${coY} Z`);
+}
+
+// Vertical scale around the eye center gives a clean blink.
+function applyEye(node, cx, openness){
+  const sc = clamp(openness, 0.06, 1);
+  node.setAttribute("transform",
+    `translate(${cx} ${EYE_CY}) scale(1 ${sc.toFixed(3)}) translate(${-cx} ${-EYE_CY})`);
+}
+
+// Blink state machine: wait -> close (~90ms) -> open (~130ms) -> wait. Always on.
+function updateBlink(dt){
+  if (blinkPhase === "open"){
+    nextBlinkIn -= dt;
+    if (nextBlinkIn <= 0){ blinkPhase = "closing"; blinkT = 0; }
+  } else if (blinkPhase === "closing"){
+    blinkT += dt / 0.09;
+    eyeOpenL = eyeOpenR = 1 - Math.min(1, blinkT);
+    if (blinkT >= 1){ blinkPhase = "opening"; blinkT = 0; }
+  } else if (blinkPhase === "opening"){
+    blinkT += dt / 0.13;
+    eyeOpenL = eyeOpenR = Math.min(1, blinkT);
+    if (blinkT >= 1){ blinkPhase = "open"; eyeOpenL = eyeOpenR = 1; nextBlinkIn = randRange(2.2, 5.5); }
+  }
+}
+
+requestAnimationFrame(frame);
+</script>

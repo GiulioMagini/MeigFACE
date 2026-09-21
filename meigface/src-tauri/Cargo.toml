@@ -1,0 +1,68 @@
+[package]
+name = "meigface"
+version = "1.0.0"
+description = "MeigFACE - Eye Contact Training System"
+authors = ["Giulio Magini"]
+edition = "2024"
+
+[lib]
+# The "_lib" suffix avoids name conflicts with the binary on Windows.
+# See: https://github.com/rust-lang/cargo/issues/8519
+name = "meigface_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2.5", features = [] }
+
+[dependencies]
+# --- Tauri core ---
+tauri = { version = "2.10", features = [] }
+
+# --- Tauri plugins ---
+# Log plugin: used to surface window-sizing errors from the setup hook
+tauri-plugin-log = "2"
+# Dialog plugin: native file pickers for the llama-server executable and the GGUF model
+tauri-plugin-dialog = "2.7"
+# Store plugin: persist the chosen executable/model paths across launches
+tauri-plugin-store = "2.4"
+
+# --- Serialization ---
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# --- Async runtime ---
+# Full tokio features needed for async sidecar I/O and inter-process communication
+tokio = { version = "1", features = ["full"] }
+
+# --- Logging ---
+log = "0.4"
+
+# --- Error handling ---
+thiserror = "2"
+
+# --- HTTP client ---
+# Polls the llama.cpp server /health endpoint over loopback HTTP during
+# startup (and will carry the LLM request/response calls from bridge.rs).
+# default-features disabled: in reqwest 0.13 the default TLS backend is
+# rustls, but we only talk to http://127.0.0.1, so we drop TLS entirely
+# to keep the build lean. This also disables system-proxy detection,
+# which is desirable here — a stray HTTP_PROXY must never capture
+# loopback traffic.
+reqwest = { version = "0.13", default-features = false, features = ["json"] }
+
+# --- Local database ---
+# SQLite via rusqlite with the "bundled" feature: SQLite is compiled from
+# source and linked statically, so there is no system-library dependency and
+# behaviour is identical across Windows/macOS/Linux. All DB access stays in
+# Rust (agent.rs), guarded by a Mutex<Connection> in Tauri managed state — the
+# same pattern already used for the engines, and it keeps SQL off the webview.
+rusqlite = { version = "0.40", features = ["bundled"] }
+
+# Linux only: raw WebKitGTK bindings, used to grant the webview audio/video
+# capture (getUserMedia), which WebKitGTK denies by default in an embedded
+# context. Version MUST match the one wry resolves (see `cargo tree -i
+# webkit2gtk`) because webkit2gtk-sys uses `links = "web_kit2"` (single version
+# allowed) and with_webview() hands back that exact WebView type. Not pulled in
+# on Windows/macOS, whose native webviews handle capture permission themselves.
+[target.'cfg(target_os = "linux")'.dependencies]
+webkit2gtk = "=2.0.2"
