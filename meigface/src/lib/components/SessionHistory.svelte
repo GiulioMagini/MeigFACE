@@ -9,8 +9,8 @@
 
   import { onMount } from "svelte";
   import { invoke } from "@tauri-apps/api/core";
-  import { t } from "$lib/i18n";
-  import ConfirmDialog from "$lib/components/ConfirmDialog.svelte";
+  import { t } from "#lib/i18n/index.js";
+  import ConfirmDialog from "#lib/components/ConfirmDialog.svelte";
 
   interface Props {
     /** Param-profile name whose sessions are shown. */

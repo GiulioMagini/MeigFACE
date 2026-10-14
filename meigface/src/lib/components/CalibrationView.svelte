@@ -1,12 +1,12 @@
 <script lang="ts">
     import { onDestroy } from "svelte";
-    import WebcamTracker from "$lib/components/WebcamTracker.svelte";
-    import PuppetSilhouette from "$lib/avatar/PuppetSilhouette.svelte";
-    import { Calibrator } from "$lib/tracking/calibration";
+    import WebcamTracker from "#lib/components/WebcamTracker.svelte";
+    import PuppetSilhouette from "#lib/avatar/PuppetSilhouette.svelte";
+    import { Calibrator } from "#lib/tracking/calibration.js";
     import type {
         CalibrationProgress,
         CalibrationMode,
-    } from "$lib/tracking/calibration";
+    } from "#lib/tracking/calibration.js";
     import {
         CalibrationState,
         TrackerState,
@@ -14,8 +14,8 @@
         type EyeReference,
         type ScreenPoint,
         type TrackingFrame,
-    } from "$lib/tracking/types";
-    import { t } from "$lib/i18n";
+    } from "#lib/tracking/types.js";
+    import { t } from "#lib/i18n/index.js";
 
     interface Props {
         mode: CalibrationMode;

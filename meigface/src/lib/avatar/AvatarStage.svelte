@@ -11,8 +11,8 @@
   // because under srcdoc (about:srcdoc) the SVG's internal url(#id)
   // gradient/clip references do not resolve in WebView2, leaving a blank
   // avatar; a blob document has a real base URL, so they resolve.
-  import avatarMaleHtml from "$lib/avatar/avatar-male.html?raw";
-  import avatarFemaleHtml from "$lib/avatar/avatar-female.html?raw";
+  import avatarMaleHtml from "#lib/avatar/avatar-male.html?raw";
+  import avatarFemaleHtml from "#lib/avatar/avatar-female.html?raw";
 
   type Gender = "male" | "female";
 

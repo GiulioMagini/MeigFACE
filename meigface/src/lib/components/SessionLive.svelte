@@ -22,30 +22,30 @@
   import { onMount, onDestroy } from "svelte";
   import { invoke } from "@tauri-apps/api/core";
   import { load } from "@tauri-apps/plugin-store";
-  import { locale, t } from "$lib/i18n";
-  import AvatarStage from "$lib/avatar/AvatarStage.svelte";
-  import WebcamTracker from "$lib/components/WebcamTracker.svelte";
-  import ErrorDialog from "$lib/components/ErrorDialog.svelte";
-  import ConfirmDialog from "$lib/components/ConfirmDialog.svelte";
-  import BiasCorrection from "$lib/components/BiasCorrection.svelte";
-  import SessionHistory from "$lib/components/SessionHistory.svelte";
+  import { locale, t } from "#lib/i18n/index.js";
+  import AvatarStage from "#lib/avatar/AvatarStage.svelte";
+  import WebcamTracker from "#lib/components/WebcamTracker.svelte";
+  import ErrorDialog from "#lib/components/ErrorDialog.svelte";
+  import ConfirmDialog from "#lib/components/ConfirmDialog.svelte";
+  import BiasCorrection from "#lib/components/BiasCorrection.svelte";
+  import SessionHistory from "#lib/components/SessionHistory.svelte";
   import {
     PUPPET_HEIGHT_FRACTION,
     PUPPET_VIEWBOX,
     puppetFaceTarget,
-  } from "$lib/avatar/layout";
+  } from "#lib/avatar/layout.js";
   import {
     extractFeatures,
     headAngles,
     predictGaze,
-  } from "$lib/tracking/regression";
-  import { Conversation, type ConversationState } from "$lib/conversation";
+  } from "#lib/tracking/regression.js";
+  import { Conversation, type ConversationState } from "#lib/conversation.js";
   import {
     TrackerState,
     type EyeReference,
     type GazeModel,
     type TrackingFrame,
-  } from "$lib/tracking/types";
+  } from "#lib/tracking/types.js";
 
   type Gender = "male" | "female";
   type Trend = "up" | "down" | "flat";

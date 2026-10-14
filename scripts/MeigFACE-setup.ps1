@@ -112,8 +112,8 @@ $MinDriverMajor = 580
 $SupportedLanguages = @('it', 'en', 'fr', 'de', 'es', 'pt')
 
 $Urls = @{
-    LlamaZip   = 'https://github.com/ggml-org/llama.cpp/releases/download/b10864/llama-b10864-bin-win-cuda-13.3-x64.zip'
-    CudartZip  = 'https://github.com/ggml-org/llama.cpp/releases/download/b10864/cudart-llama-bin-win-cuda-13.3-x64.zip'
+    LlamaZip   = 'https://github.com/ggml-org/llama.cpp/releases/download/b11600/llama-b11600-bin-win-cuda-13.4-x64.zip'
+    CudartZip  = 'https://github.com/ggml-org/llama.cpp/releases/download/b11600/cudart-llama-bin-win-cuda-13.4-x64.zip'
     WhisperZip = 'https://github.com/ggml-org/whisper.cpp/releases/download/b5130/whisper-cublas-12.4.0-bin-x64.zip'
     PiperZip   = 'https://github.com/rhasspy/piper/releases/download/2023.11.14-2/piper_windows_amd64.zip'
 }

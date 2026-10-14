@@ -5,10 +5,10 @@
     //! the convention used by every videoconference tool.
 
     import { onMount } from "svelte";
-    import { FaceTracker } from "$lib/tracking/mediapipe";
-    import { TrackerState, type TrackingFrame } from "$lib/tracking/types";
-    import { t } from "$lib/i18n";
-    import { getPreferredCameraId } from "$lib/mediaDevices";
+    import { FaceTracker } from "#lib/tracking/mediapipe.js";
+    import { TrackerState, type TrackingFrame } from "#lib/tracking/types.js";
+    import { t } from "#lib/i18n/index.js";
+    import { getPreferredCameraId } from "#lib/mediaDevices.js";
 
     interface Props {
         frame?: TrackingFrame | null;

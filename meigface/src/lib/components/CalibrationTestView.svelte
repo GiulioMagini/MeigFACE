@@ -7,21 +7,21 @@
   //! trims high-frequency tremor without hiding systematic drift, so
   //! the user can judge how accurate the calibration actually is.
 
-  import WebcamTracker from "$lib/components/WebcamTracker.svelte";
-  import PuppetSilhouette from "$lib/avatar/PuppetSilhouette.svelte";
+  import WebcamTracker from "#lib/components/WebcamTracker.svelte";
+  import PuppetSilhouette from "#lib/avatar/PuppetSilhouette.svelte";
   import {
     extractFeatures,
     extractFeaturesDebug,
     headAngles,
     predictGaze,
-  } from "$lib/tracking/regression";
+  } from "#lib/tracking/regression.js";
   import {
     TrackerState,
     type EyeReference,
     type GazeModel,
     type TrackingFrame,
-  } from "$lib/tracking/types";
-  import { t } from "$lib/i18n";
+  } from "#lib/tracking/types.js";
+  import { t } from "#lib/i18n/index.js";
 
   // Split the raw hint translation on its {enterKey} placeholder so the key
   // name can be rendered as a real <strong> element instead of injected HTML.

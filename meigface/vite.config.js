@@ -1,3 +1,5 @@
+import adapter from "@sveltejs/adapter-static";
+import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 import { defineConfig } from "vite";
 import { sveltekit } from "@sveltejs/kit/vite";
 
@@ -5,7 +7,17 @@ import { sveltekit } from "@sveltejs/kit/vite";
 const host = process.env.TAURI_DEV_HOST;
 
 export default defineConfig(async () => ({
-  plugins: [sveltekit()],
+    plugins: [
+    // SvelteKit 3 takes its configuration here (svelte.config.js is no longer read).
+    // Tauri has no Node.js server for SSR, so adapter-static with an index.html
+    // fallback builds the app in SPA mode.
+    // See: https://svelte.dev/docs/kit/single-page-apps
+    // See: https://v2.tauri.app/start/frontend/sveltekit/
+    sveltekit({
+      preprocess: vitePreprocess(),
+      adapter: adapter({ fallback: "index.html" }),
+    }),
+  ],
 
   // Prevent Vite from obscuring Rust errors in the console
   clearScreen: false,

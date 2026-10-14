@@ -12,21 +12,21 @@
   //! only reports the corrected model (onComplete) or a request to proceed
   //! without it (onSkip). Mirrors CalibrationView's capture loop and timing.
   import { onMount, onDestroy } from "svelte";
-  import { t } from "$lib/i18n";
-  import AvatarStage from "$lib/avatar/AvatarStage.svelte";
-  import WebcamTracker from "$lib/components/WebcamTracker.svelte";
-  import { PUPPET_HEIGHT_FRACTION, PUPPET_VIEWBOX } from "$lib/avatar/layout";
+  import { t } from "#lib/i18n/index.js";
+  import AvatarStage from "#lib/avatar/AvatarStage.svelte";
+  import WebcamTracker from "#lib/components/WebcamTracker.svelte";
+  import { PUPPET_HEIGHT_FRACTION, PUPPET_VIEWBOX } from "#lib/avatar/layout.js";
   import {
     BiasCorrector,
     type CalibrationProgress,
-  } from "$lib/tracking/calibration";
+  } from "#lib/tracking/calibration.js";
   import {
     CalibrationState,
     TrackerState,
     type GazeModel,
     type ScreenPoint,
     type TrackingFrame,
-  } from "$lib/tracking/types";
+  } from "#lib/tracking/types.js";
 
   type Gender = "male" | "female";
 

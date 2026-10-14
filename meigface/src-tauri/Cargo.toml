@@ -1,6 +1,6 @@
 [package]
 name = "meigface"
-version = "1.0.0"
+version = "1.5.0"
 description = "MeigFACE - Eye Contact Training System"
 authors = ["Giulio Magini"]
 edition = "2024"
@@ -12,19 +12,19 @@ name = "meigface_lib"
 crate-type = ["staticlib", "cdylib", "rlib"]
 
 [build-dependencies]
-tauri-build = { version = "2.5", features = [] }
+tauri-build = { version = "2.7", features = [] }
 
 [dependencies]
 # --- Tauri core ---
-tauri = { version = "2.10", features = [] }
+tauri = { version = "2.12", features = [] }
 
 # --- Tauri plugins ---
 # Log plugin: used to surface window-sizing errors from the setup hook
 tauri-plugin-log = "2"
 # Dialog plugin: native file pickers for the llama-server executable and the GGUF model
-tauri-plugin-dialog = "2.7"
+tauri-plugin-dialog = "2.8"
 # Store plugin: persist the chosen executable/model paths across launches
-tauri-plugin-store = "2.4"
+tauri-plugin-store = "2.5"
 
 # --- Serialization ---
 serde = { version = "1", features = ["derive"] }

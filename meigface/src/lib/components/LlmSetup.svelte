@@ -10,7 +10,7 @@
   import { invoke } from "@tauri-apps/api/core";
   import { open } from "@tauri-apps/plugin-dialog";
   import { load, type Store } from "@tauri-apps/plugin-store";
-  import { t } from "$lib/i18n";
+  import { t } from "#lib/i18n/index.js";
 
   // Persisted settings: file name and the keys inside it.
   const STORE_FILE = "settings.json";

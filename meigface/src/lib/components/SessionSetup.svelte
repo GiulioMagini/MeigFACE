@@ -6,12 +6,12 @@
   import { onMount, onDestroy } from "svelte";
   import { invoke } from "@tauri-apps/api/core";
   import { load, type Store } from "@tauri-apps/plugin-store";
-  import { toArrayBuffer } from "$lib/audio/player";
-  import { locale, t } from "$lib/i18n";
+  import { toArrayBuffer } from "#lib/audio/player.js";
+  import { locale, t } from "#lib/i18n/index.js";
   import { goto } from "$app/navigation";
-  import ConfirmDialog from "$lib/components/ConfirmDialog.svelte";
-  import SessionHistory from "$lib/components/SessionHistory.svelte";
-  import AvatarStage from "$lib/avatar/AvatarStage.svelte";
+  import ConfirmDialog from "#lib/components/ConfirmDialog.svelte";
+  import SessionHistory from "#lib/components/SessionHistory.svelte";
+  import AvatarStage from "#lib/avatar/AvatarStage.svelte";
   import {
     listInputDevices,
     getPreferredMicrophoneId,
@@ -19,7 +19,7 @@
     getPreferredCameraId,
     setPreferredCameraId,
     type InputDevice,
-  } from "$lib/mediaDevices";
+  } from "#lib/mediaDevices.js";
 
   type Gender = "male" | "female";
 

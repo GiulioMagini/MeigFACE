@@ -14,7 +14,7 @@
     PUPPET_LEFT_EYE,
     PUPPET_RIGHT_EYE,
     PUPPET_HEIGHT_FRACTION,
-  } from "$lib/avatar/layout";
+  } from "#lib/avatar/layout.js";
 
   interface Props {
     /** Pick the stroke that contrasts with the host view background. */

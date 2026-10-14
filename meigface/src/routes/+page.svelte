@@ -4,12 +4,12 @@
   //! transitions between them based on user actions and the presence
   //! of a fitted gaze model.
 
-  import CalibrationView from "$lib/components/CalibrationView.svelte";
-  import CalibrationTestView from "$lib/components/CalibrationTestView.svelte";
-  import LlmSetup from "$lib/components/LlmSetup.svelte";
-  import { CALIBRATION_POINT_OPTIONS } from "$lib/tracking/calibration";
-  import type { CalibrationMode } from "$lib/tracking/calibration";
-  import type { EyeReference, GazeModel } from "$lib/tracking/types";
+  import CalibrationView from "#lib/components/CalibrationView.svelte";
+  import CalibrationTestView from "#lib/components/CalibrationTestView.svelte";
+  import LlmSetup from "#lib/components/LlmSetup.svelte";
+  import { CALIBRATION_POINT_OPTIONS } from "#lib/tracking/calibration.js";
+  import type { CalibrationMode } from "#lib/tracking/calibration.js";
+  import type { EyeReference, GazeModel } from "#lib/tracking/types.js";
   import {
     t,
     locale,
@@ -17,20 +17,20 @@
     loadCustomLocales,
     setLocale,
     type Locale,
-  } from "$lib/i18n";
+  } from "#lib/i18n/index.js";
   import { goto } from "$app/navigation";
   import { onMount } from "svelte";
   import { invoke } from "@tauri-apps/api/core";
   import { load, type Store } from "@tauri-apps/plugin-store";
   import { get } from "svelte/store";
-  import InfoDialog from "$lib/components/InfoDialog.svelte";
-  import ErrorDialog from "$lib/components/ErrorDialog.svelte";
-  import { runSystemCheck, type SystemCheckResult } from "$lib/systemCheck";
+  import InfoDialog from "#lib/components/InfoDialog.svelte";
+  import ErrorDialog from "#lib/components/ErrorDialog.svelte";
+  import { runSystemCheck, type SystemCheckResult } from "#lib/systemCheck.js";
   import {
     ensureMediaPermissions,
     type MediaPermissionState,
     detectOs,
-  } from "$lib/permissions";
+  } from "#lib/permissions.js";
   import {
     listInputDevices,
     getPreferredMicrophoneId,
@@ -38,7 +38,7 @@
     getPreferredCameraId,
     setPreferredCameraId,
     type InputDevice,
-  } from "$lib/mediaDevices";
+  } from "#lib/mediaDevices.js";
 
   type View = "home" | "calibration" | "test";
 
