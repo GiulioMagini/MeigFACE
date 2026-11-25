@@ -85,10 +85,16 @@ ADAPTING THIS SCRIPT (for a person or an AI assistant)
     Vulkan/HIP builds, drop the cudart zip, and replace Get-NvidiaInfo with a
     detection that fits the vendor. The CUDA builds are used here because
     NVIDIA is what general-public machines ship with.
-  * Update-only: llama.cpp has no "latest" download URL, the build number in
-    $Urls.LlamaZip / $Urls.CudartZip must be bumped by hand.
+  * Update-only: the component versions are pinned in $Urls (see the note
+    there). llama.cpp has no "latest" download URL: to move to a newer build,
+    the build number in $Urls.LlamaZip / $Urls.CudartZip must be bumped by
+    hand, together with the CUDA version in both file names.
 
 KNOWN LIMITS
+  * llama.cpp's CUDA 13 build does not support NVIDIA GPUs older than Turing
+    (compute capability below 7.5, e.g. GTX 900/10 series): on those cards
+    llama-server cannot use the GPU. Use the CUDA 12.4 build from the same
+    release instead.
   * The CUDA builds are expected to fall back to CPU when no NVIDIA device is
     present (DDR5 profile). This has not been verified on this exact build.
   * Piper is the last native Windows build (2023.11.14-2); newer Piper is
@@ -104,17 +110,24 @@ $ErrorActionPreference = 'Stop'
 # Constants
 # --------------------------------------------------------------------------
 
-# Minimum NVIDIA driver for the CUDA 13.x runtime shipped with llama.cpp. 580
-# is NVIDIA's published floor for CUDA 13.0; CUDA 13.3 may need a newer one, so
-# this is a warning, never a hard stop.
+# Minimum NVIDIA driver for the CUDA 13.4 runtime shipped with llama.cpp.
+# Thanks to CUDA minor version compatibility, 580 is NVIDIA's published floor
+# for the whole 13.x family (with a limited feature set on drivers older than
+# the toolkit), so this is a warning, never a hard stop.
 $MinDriverMajor = 580
 
 $SupportedLanguages = @('it', 'en', 'fr', 'de', 'es', 'pt')
 
+# Pinned versions, not updated on purpose: every hardware measurement in this
+# script was taken with them.
+#   * llama.cpp b12167 is the last release that ships the CUDA 13.4 build
+#     (from b12170 only CUDA 13.5 is published).
+#   * whisper.cpp publishes Windows CUDA builds for 12.4 and 11.8 only.
+#   * Piper 2023.11.14-2 is the last native Windows build.
 $Urls = @{
-    LlamaZip   = 'https://github.com/ggml-org/llama.cpp/releases/download/b11600/llama-b11600-bin-win-cuda-13.4-x64.zip'
-    CudartZip  = 'https://github.com/ggml-org/llama.cpp/releases/download/b11600/cudart-llama-bin-win-cuda-13.4-x64.zip'
-    WhisperZip = 'https://github.com/ggml-org/whisper.cpp/releases/download/b5130/whisper-cublas-12.4.0-bin-x64.zip'
+    LlamaZip   = 'https://github.com/ggml-org/llama.cpp/releases/download/b12167/llama-b12167-bin-win-cuda-13.4-x64.zip'
+    CudartZip  = 'https://github.com/ggml-org/llama.cpp/releases/download/b12167/cudart-llama-bin-win-cuda-13.4-x64.zip'
+    WhisperZip = 'https://github.com/ggml-org/whisper.cpp/releases/download/b5907/whisper-bin-win-cuda-12.4.0-x64.zip'
     PiperZip   = 'https://github.com/rhasspy/piper/releases/download/2023.11.14-2/piper_windows_amd64.zip'
 }
 
